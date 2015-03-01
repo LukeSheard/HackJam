@@ -1,0 +1,119 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #315481;
+  background-attachment: fixed;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 0;
+  margin: 0;
+
+  font-size: 1em;
+}
+
+header {
+  min-height: 2em;
+  vertical-align: bottom;
+  background: #f1f1f1;
+  padding: 20px 15px 15px 15px;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+header .hide-completed {
+  float: right;
+}
+
+main {
+  max-width: 80%;
+  margin: 0 auto;
+  min-height: 50%;
+  background: white;
+  margin-bottom: 20px;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 1em;
+}
+
+h2{
+	font-size: 1.5em;
+	margin: 0;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+
+#login-buttons {
+  display: inline-block;
+}
+
+form {
+  margin: 0;
+  position: relative;
+}
+
+.new-task input {
+  font-size: 1em;
+  box-sizing: border-box;
+  border: none;
+  width: 100%;
+}
+
+.new-task input:focus{
+  outline: 0;
+}
+
+ul {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+  padding-bottom: 20px;
+}
+
+li {
+  font-size: 1em;
+  position: relative;
+  list-style: none;
+  padding: 15px;
+  border-bottom: #eee solid 1px;
+  vertical-align: middle;
+}
+
+.signin{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  text-align: center;
+  border-bottom: #eee solid 1px;
+}
+
+.text {
+  margin-left: 10px;
+}
+
+.checked{
+  color: #888;
+  text-decoration: line-through;
+}
+
+li .undo{
+  background: none;
+  font-size: 0.75em;
+  border: none;
+  padding: 2px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  float: right;
+}
