@@ -1,4 +1,4 @@
- <head>
+<head>
 	<title>Task Manager Test</title>
 	<link href="bootstrap/bootstrap.css">
 	<script link="bootstrap/bootstrap.js"></script>
@@ -6,32 +6,63 @@
 
 <body>
 	<header>
-		<h1>To-Do List</h1>
-		{{> loginButtons}}
+		<h3>CalWork</h3>
 	</header>
 	<main>
-		{{#if currentUser}}
-		<ul>
-			<li>
-				<form class="new-task">
-					<input class="text" type="text" name="text" placeholder="Enter New Task">
-				</form>
-			</li>
-			{{#each tasks}}
-				{{> task}}
-			{{/each}}
-		</ul>
-		{{else}}
-			<h2 class="signin">Please Sign In</h2>
-		{{/if}}
+		<div class="row">
+			<div class="col-xs-3">
+				<h6 class="center">Course Code</h6>
+			</div>
+			<div class="col-xs-3">
+				<h6 class="center">Title</h6>
+			</div>
+			<div class="col-xs-2">
+				<h6 class="center">Due Date</h6>
+			</div>
+			<div class="col-xs-3">
+				<h6 class="center">Comments</h6>
+			</div>
+		</div>
+		
+		<form class="new-task"> 
+			<div class="row">
+				<div class="col-xs-3">
+					<input class="text" type="text" name="course" placeholder="Enter New Task">
+				</div>
+				<div class="col-xs-3">
+					<input class="text" type="text" name="title" placeholder="Enter New Task">
+				</div>
+				<div class="col-xs-2">
+					<input class="text" type="text" name="date" placeholder="Enter New Task">
+				</div>
+				<div class="col-xs-3">
+					<input class="text" type="text" name="notes" placeholder="Enter New Task">
+				</div>
+				<div class="col-xs-1">
+					<input type="submit" value="Submit">
+				</div>
+			</div>
+		</form>
+
+		{{#each tasks}}
+			{{> task}}
+		{{/each}}
 	</main>
 </body>
 
 <template name="task">
-	{{#if userCheck}}
-	<li>
-		<span class="{{#if checked}}checked {{else}} item {{/if}} text">{{text}} &nbsp; ({{day}} / {{month}} / {{year}})</span>
-		{{#if checked}}<button class="undo">Restore</button>{{/if}}
-	</li>
-	{{/if}}
+	<div class="row">
+		<div class="col-xs-3">
+			<p class="center">{{course}}</p>
+		</div>
+		<div class="col-xs-3">
+			<p class="center">{{title}}</p>
+		</div>
+		<div class="col-xs-2">
+			<p class="center">{{date}}</p>
+		</div>
+		<div class="col-xs-3">
+			<p class="center">{{notes}}</p>
+		</div>
+	</div>
 </template>
