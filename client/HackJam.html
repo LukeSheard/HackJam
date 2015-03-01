@@ -8,12 +8,8 @@
 	<header>
 		<h3>CalWork</h3>
 	</header>
-	<main>
-		<form class="new-course">
-			<input type="text" name="classid" placeholder="Course Code">
-			<input type="submit" value="Submit">
-		</form>
-
+	<div class="main" role="main">
+		<h3>Quick Add</h3>
 		<div class="row">
 			<div class="col-xs-3">
 				<h6 class="center">Course Code</h6>
@@ -28,7 +24,7 @@
 				<h6 class="center">Comments</h6>
 			</div>
 		</div>
-		
+
 		<form class="new-task"> 
 			<div class="row">
 				<div class="col-xs-3">
@@ -48,13 +44,24 @@
 				</div>
 			</div>
 		</form>
+	</div>
 
+	<div class="main">
+		<h3>Homework</h3>
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
 			{{#each courses}}
 				{{> course}}
 			{{/each}}
 		</div>
-	</main>
+	</div>
+
+	<div class="main">
+		<h4>Class Management</h4>
+	  	<form class="new-course">
+			<input type="text" name="classid" placeholder="Course Code">
+			<input type="submit" value="Submit">
+		</form>
+	</div>
 </body>
 
 <template name="course">

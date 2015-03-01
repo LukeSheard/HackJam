@@ -19,13 +19,15 @@ header {
   margin-bottom: 25px;
 }
 
-main {
-  max-width: 80%;
-  margin: 0 auto;
-  padding: 0 10px;
-  min-height: 50%;
+.main {
+  max-width: 90%;
+  margin: 0 auto 20px auto;
+  padding: 20px 50px 20px 50px;
   background: white;
-  margin-bottom: 20px;
+}
+
+.section{
+  padding-bottom: 20px;
 }
 
 .center{
