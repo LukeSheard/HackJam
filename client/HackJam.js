@@ -1,8 +1,18 @@
+Classes = new Mongo.Collection("courseid");
 Tasks = new Mongo.Collection("tasks");
 
 if(Meteor.isClient){
    Template.body.helpers({
-      tasks: function(){
+      courses: function(){
+         return Classes.find(
+            {},
+            {}
+         );
+      }
+   });
+
+   Template.body.helpers({
+      tasks: function(course){
          return Tasks.find(
             {},
             {sort: {createdAt: -1}}
@@ -34,6 +44,20 @@ if(Meteor.isClient){
       }
    });
 
+   Template.body.events({
+      "submit .new-course": function(event) {
+         var entry1 = event.target.classid.value;
+         
+         Classes.insert({
+            course: entry1,
+         });
+
+         event.target.classid.value="";
+
+         return false;
+      }
+   });
+
    Template.task.helpers({
       userCheck: function(){
          if (Meteor.userId() == this.owner){
@@ -44,6 +68,37 @@ if(Meteor.isClient){
          }
 
       }
+   });
+
+   Template.body.events({
+      "click .item": function(event){
+         Tasks.update(
+            this._id,
+            {
+               $set: {
+                  completedAt: new Date(),
+                  checked: !this.checked
+               }
+            }
+         );
+      }, 
+
+      "click .checked": function(event){
+         Tasks.remove(this._id);
+      },
+
+      "click .undo": function(event){
+         Tasks.update(
+            this._id,
+            {
+               $set: {
+                  completedAt: null,
+                  checked: !this.checked
+               }
+            }
+         );
+      }
+
    });
 
    Accounts.ui.config({

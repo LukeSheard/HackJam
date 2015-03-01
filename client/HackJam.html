@@ -9,6 +9,11 @@
 		<h3>CalWork</h3>
 	</header>
 	<main>
+		<form class="new-course">
+			<input type="text" name="classid" placeholder="Course Code">
+			<input type="submit" value="Submit">
+		</form>
+
 		<div class="row">
 			<div class="col-xs-3">
 				<h6 class="center">Course Code</h6>
@@ -44,14 +49,31 @@
 			</div>
 		</form>
 
-		{{#each tasks}}
-			{{> task}}
-		{{/each}}
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+			{{#each courses}}
+				{{> course}}
+			{{/each}}
+		</div>
 	</main>
 </body>
 
+<template name="course">
+	<div class="panel-heading" role="tab" id="heading{{course}}">
+      	<h4 class="panel-title">
+        	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{course}}" aria-expanded="false" aria-controls="collapse{{course}}">
+	          		{{course}}
+        	</a>
+      	</h4>
+    </div>
+    <div id="collapse{{course}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{course}}">
+      	<div class="panel-body">
+        	STUFF
+      	</div>
+    </div>
+</template>
+
 <template name="task">
-	<div class="row">
+	<div class="{{#if checked}}checked {{/if}} row">
 		<div class="col-xs-3">
 			<p class="center">{{course}}</p>
 		</div>
@@ -65,4 +87,5 @@
 			<p class="center">{{notes}}</p>
 		</div>
 	</div>
+	<hr style="margin:0">
 </template>
