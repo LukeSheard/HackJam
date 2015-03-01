@@ -1,0 +1,8 @@
+https://api-central.berkeley.edu/api/4/interactive-docs#!/course/_get_1
+Berkeley API settings
+
+Name: CalWork
+ID: 5375acf8
+Key: 3dbf077bbe1cd2c6e313770812f9056f
+Plan: Student Information
+
