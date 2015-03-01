@@ -12,22 +12,41 @@ if(Meteor.isClient){
 
    Template.body.events({
       "submit .new-task": function(event) {
-         var course = event.target.course.value;
-         var title = event.target.title.value;
-         var date = event.target.date.value;
-         var notes = event.target.notes.value;
-         var createdAt = new Date();
+         var entry1 = event.target.course.value;
+         var entry2 = event.target.title.value;
+         var entry3 = event.target.date.value;
+         var entry4 = event.target.notes.value;
          
          Tasks.insert({
-            course: course,
-            title: title,
-            date: date,
-            notes: notes,
-            createdAt: createdAt,
+            course: entry1,
+            title: entry2,
+            date: entry3,
+            notes: entry4,
+            createdAt: new Date(),
          });
 
-         event.target.text.value="";
+         event.target.course.value="";
+         event.target.title.value="";
+         event.target.date.value="";
+         event.target.notes.value="";
+
          return false;
       }
+   });
+
+   Template.task.helpers({
+      userCheck: function(){
+         if (Meteor.userId() == this.owner){
+            return true;
+         }
+         else{
+            return false;
+         }
+
+      }
+   });
+
+   Accounts.ui.config({
+      passwordSignupFields: "USERNAME_ONLY"
    });
 }
