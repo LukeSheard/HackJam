@@ -46,20 +46,22 @@ if(Meteor.isClient){
          var entry3 = event.target.date.value;
          var entry4 = event.target.notes.value;
          
-         Tasks.insert({
-            course: entry1,
-            title: entry2,
-            date: entry3,
-            notes: entry4,
-            createdAt: new Date(),
-            owner: Meteor.userId(),
-            username: Meteor.user().username
-         });
+         if (entry1!="" && entry2 != "" && entry3 !=""){
+            Tasks.insert({
+               course: entry1,
+               title: entry2,
+               date: entry3,
+               notes: entry4,
+               createdAt: new Date(),
+               owner: Meteor.userId(),
+               username: Meteor.user().username
+            });
 
-         event.target.course.value="";
-         event.target.title.value="";
-         event.target.date.value="";
-         event.target.notes.value="";
+            event.target.course.value="";
+            event.target.title.value="";
+            event.target.date.value="";
+            event.target.notes.value="";
+         }
 
          return false;
       }

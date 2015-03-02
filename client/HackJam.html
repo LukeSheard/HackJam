@@ -87,7 +87,7 @@
 </body>
 
 <template name="course">
-	{{#if userCheck}}
+	{{#if userCheck course}}
 		<div class="panel panel-default">
 	    	<div class="panel-heading" role="tab" id="heading{{course}}">
 	  			<h4 class="panel-title">
@@ -123,7 +123,7 @@
 </template>
 
 <template name="task">
-	{{#if userCheck}}
+	{{#if userCheck task}}
 	<hr style="margin:2px">
 	<div class="{{#if checked}} item {{/if}}row">
 		<div class="col-xs-3 {{#if checked}}checked {{else}} item {{/if}} ">
