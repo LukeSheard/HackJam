@@ -7,7 +7,7 @@ if(Meteor.isClient){
          return Classes.find(
             {},
             {}
-         );
+         ).fetch();
       }
    });
 
