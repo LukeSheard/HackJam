@@ -46,11 +46,13 @@ if(Meteor.isClient){
 
    Template.body.events({
       "submit .new-course": function(event) {
+
          var entry1 = event.target.classid.value;
-         
-         Classes.insert({
-            course: entry1,
-         });
+         if (entry1!=""){
+            Classes.insert({
+               course: entry1,
+            });
+         }         
 
          event.target.classid.value="";
 
