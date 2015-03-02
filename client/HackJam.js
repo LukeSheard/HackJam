@@ -15,7 +15,7 @@ if(Meteor.isClient){
       tasks: function(args){
          return Tasks.find(
             {course: args},
-            {sort: {createdAt: -1}}
+            {sort: {checked: 1, completedAt: 1, createdAt: -1}}
          ).fetch();
       }
    });
