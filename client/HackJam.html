@@ -85,7 +85,7 @@
 					<div class="col-xs-2">
 						<h6 class="center">Due Date</h6>
 					</div>
-					<div class="col-xs-3">
+					<div class="col-xs-5">
 						<h6 class="center">Comments</h6>
 					</div>
 				</div>
@@ -99,16 +99,18 @@
 
 <template name="task">	
 	<hr style="margin:2px">
-	<div class="row">
-		<div class="col-xs-3">
-			<p class="{{#if checked}}checked {{else}} item {{/if}} center">{{title}}</p>
+	<div class="{{#if checked}} item {{/if}}row">
+		<div class="col-xs-3 {{#if checked}}checked {{else}} item {{/if}} ">
+			<p>{{title}}</p>
 		</div>
-		<div class="col-xs-2">
-			<p class="{{#if checked}}checked {{else}} item {{/if}} center">{{date}}</p>
+		<div class="col-xs-2 {{#if checked}}checked {{else}} item {{/if}} ">
+			<p>{{date}}</p>
 		</div>
-		<div class="col-xs-3">
-			<p class="{{#if checked}}checked {{else}} item {{/if}} center">{{notes}}</p>
+		<div class="col-xs-5 {{#if checked}}checked {{else}} item {{/if}} ">
+			<p>{{notes}}</p>
 		</div>
-		{{#if checked}}<div class="col-xs-1"><button class="undo">Restore</button></div>{{/if}}
+		{{#if checked}}
+		<div class="col-xs-1">&nbsp;</div>
+		<div class="col-xs-1"><button class="undo">Restore</button></div>{{/if}}
 	</div>
 </template>

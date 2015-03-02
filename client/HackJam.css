@@ -40,8 +40,14 @@ input{
 
 .checked{
   color: #888;
-  font-style: bold;
-  text-decoration: line-through;
+}
+
+.checked:before{
+  content: "";
+  position: absolute;
+  top: 40%;
+  border-bottom: 1px solid #888;
+  width: 100%;
 }
 
 .undo{
