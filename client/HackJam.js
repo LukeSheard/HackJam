@@ -140,10 +140,12 @@ if(Meteor.isClient){
 
    });
 
-   Template.login.rendered = function() {
-     Accounts._loginButtonsSession.set('dropdownVisible', true);
-     $("#login-sign-in-link").hide();
-   };
+   Template.Dashboard.events({
+      "click .logout": function(event){
+         event.preventDefault();
+         Meteor.logout();
+      }
+   });
 
    Accounts.ui.config({
       passwordSignupFields: "USERNAME_ONLY"

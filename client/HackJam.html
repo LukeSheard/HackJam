@@ -19,8 +19,7 @@
 <body>
 	{{#if currentUser}}
 	<header>
-		<h3>CalWork</h3>
-		{{> loginButtons}}
+		{{> Dashboard}}
 	</header>
 	<div class="main" role="main">
 
@@ -148,4 +147,15 @@
 		<div class="col-xs-1"><button class="undo">Restore</button></div>{{/if}}
 	</div>
 	{{/if}}
+</template>
+
+<template name="Dashboard">
+	<div class="row">
+		<div class="col-xs-9 col-sm-10 col-md-11">
+			<h3>CalWork</h3>
+		</div>
+		<div class="col-xs-3 col-sm-2 col-md-1">
+			<button class="btn btn-sm btn-primary btn-block logout">Logout</button>
+		</div>
+	</div>
 </template>
