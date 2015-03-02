@@ -140,6 +140,11 @@ if(Meteor.isClient){
 
    });
 
+   Template.login.rendered = function() {
+     Accounts._loginButtonsSession.set('dropdownVisible', true);
+     $("#login-sign-in-link").hide();
+   };
+
    Accounts.ui.config({
       passwordSignupFields: "USERNAME_ONLY"
    });
