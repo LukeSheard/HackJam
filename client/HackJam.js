@@ -29,11 +29,16 @@ if(Meteor.isClient){
 
    Template.course.helpers({
       assignments: function(args){
-         if(Tasks.find(
-            {course: args}, {}
-         ).fetch()[0] != null){
-            return true;
-         } else{
+         if(Meteor.id() === args.owner){
+            if(Tasks.find(
+               {course: args}, {}
+            ).fetch()[0] != null){
+               return true;
+            } else{
+               return false;
+            }
+         }
+         else{
             return false;
          }
       }
