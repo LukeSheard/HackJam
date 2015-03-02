@@ -48,7 +48,7 @@
 
 	<div class="main">
 		<h3>Homework</h3>
-		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+		<div class="panel-group" id="accordion" role="tablist">
 			{{#each courses}}
 				{{> course}}
 			{{/each}}
@@ -75,6 +75,20 @@
     	</div>
     	<div id="collapse{{course}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{course}}">
       		<div class="panel-body">
+      			<div class="row">
+					<div class="col-xs-3">
+						<h6 class="center">Course Code</h6>
+					</div>
+					<div class="col-xs-3">
+						<h6 class="center">Title</h6>
+					</div>
+					<div class="col-xs-2">
+						<h6 class="center">Due Date</h6>
+					</div>
+					<div class="col-xs-3">
+						<h6 class="center">Comments</h6>
+					</div>
+				</div>
         		{{#each tasks course}}
 					{{> task}}
 				{{/each}}
@@ -83,20 +97,21 @@
   	</div>
 </template>
 
-<template name="task">
-	<div class="{{#if checked}}checked {{/if}} row">
+<template name="task">	
+	<hr style="margin:2px">
+	<div class="row">
 		<div class="col-xs-3">
-			<p class="center">{{course}}</p>
+			<p class="{{#if checked}}checked {{else}} item {{/if}} center">{{course}}</p>
 		</div>
 		<div class="col-xs-3">
-			<p class="center">{{title}}</p>
+			<p class="{{#if checked}}checked {{else}} item {{/if}} center">{{title}}</p>
 		</div>
 		<div class="col-xs-2">
-			<p class="center">{{date}}</p>
+			<p class="{{#if checked}}checked {{else}} item {{/if}} center">{{date}}</p>
 		</div>
 		<div class="col-xs-3">
-			<p class="center">{{notes}}</p>
+			<p class="{{#if checked}}checked {{else}} item {{/if}} center">{{notes}}</p>
 		</div>
+		{{#if checked}}<div class="col-xs-1"><button class="undo">Restore</button></div>{{/if}}
 	</div>
-	<hr style="margin:0">
 </template>

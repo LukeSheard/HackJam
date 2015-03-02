@@ -37,3 +37,20 @@ header {
 input{
   width: 100%;
 }
+
+.checked{
+  color: #888;
+  font-style: bold;
+  text-decoration: line-through;
+}
+
+.undo{
+  background: none;
+  font-size: 0.75em;
+  border: none;
+  padding: 2px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  float: right;
+}
