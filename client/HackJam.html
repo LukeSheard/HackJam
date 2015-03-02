@@ -78,20 +78,24 @@
     	</div>
     	<div id="collapse{{course}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{course}}">
       		<div class="panel-body">
-      			<div class="row">
-					<div class="col-xs-3">
-						<h6 class="center">Title</h6>
+      			{{#if assignments course}}
+	      			<div class="row">
+						<div class="col-xs-3">
+							<h6>Title</h6>
+						</div>
+						<div class="col-xs-2">
+							<h6>Due Date</h6>
+						</div>
+						<div class="col-xs-5">
+							<h6>Comments</h6>
+						</div>
 					</div>
-					<div class="col-xs-2">
-						<h6 class="center">Due Date</h6>
-					</div>
-					<div class="col-xs-5">
-						<h6 class="center">Comments</h6>
-					</div>
-				</div>
-        		{{#each tasks course}}
-					{{> task}}
-				{{/each}}
+	        		{{#each tasks course}}
+						{{> task}}
+					{{/each}}
+				{{else}}
+					<h5>No Assignments due</h5>
+				{{/if}}
       		</div>
     	</div>
   	</div>

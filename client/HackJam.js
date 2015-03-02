@@ -13,12 +13,31 @@ if(Meteor.isClient){
 
    Template.course.helpers({
       tasks: function(args){
-         return Tasks.find(
+         if(Tasks.find(
             {course: args},
             {sort: {checked: 1, completedAt: 1, createdAt: -1}}
-         ).fetch();
+         ).fetch() != null){
+            return Tasks.find(
+               {course: args},
+               {sort: {checked: 1, completedAt: 1, createdAt: -1}}
+            ).fetch();
+         } else{
+            return false;
+         }
       }
    });
+
+   Template.course.helpers({
+      assignments: function(args){
+         if(Tasks.find(
+            {course: args}, {}
+         ).fetch()[0] != null){
+            return true;
+         } else{
+            return false;
+         }
+      }
+   })
 
    Template.body.events({
       "submit .new-task": function(event) {
