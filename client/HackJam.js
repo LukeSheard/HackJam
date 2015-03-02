@@ -15,8 +15,9 @@ if(Meteor.isClient){
       tasks: function(course){
          return Tasks.find(
             {},
-            {sort: {createdAt: -1}}
-         );
+            {sort: {createdAt: -1}},
+            {title: course}
+         ).fetch();
       }
    });
 
