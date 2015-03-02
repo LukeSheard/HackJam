@@ -29,16 +29,11 @@ if(Meteor.isClient){
 
    Template.course.helpers({
       assignments: function(args){
-         if(Meteor.id() === args.owner){
-            if(Tasks.find(
-               {course: args}, {}
-            ).fetch()[0] != null){
-               return true;
-            } else{
-               return false;
-            }
-         }
-         else{
+         if(Tasks.find(
+            {course: args}, {}
+         ).fetch()[0] != null){
+            return true;
+         } else{
             return false;
          }
       }
@@ -85,6 +80,18 @@ if(Meteor.isClient){
          event.target.classid.value="";
 
          return false;
+      }
+   });
+
+   Template.course.helpers({
+      userCheck: function(){
+         if (Meteor.userId() == this.owner){
+            return true;
+         }
+         else{
+            return false;
+         }
+
       }
    });
 
