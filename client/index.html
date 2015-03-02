@@ -87,6 +87,7 @@
 </body>
 
 <template name="course">
+	<!-- {{#if userCheck}} -->
 	<div class="panel panel-default">
     	<div class="panel-heading" role="tab" id="heading{{course}}">
   			<h4 class="panel-title">
@@ -118,9 +119,11 @@
       		</div>
     	</div>
   	</div>
+  	<!-- {{/if}} -->
 </template>
 
-<template name="task">	
+<template name="task">
+	{{#if userCheck}}
 	<hr style="margin:2px">
 	<div class="{{#if checked}} item {{/if}}row">
 		<div class="col-xs-3 {{#if checked}}checked {{else}} item {{/if}} ">
@@ -136,4 +139,5 @@
 		<div class="col-xs-1">&nbsp;</div>
 		<div class="col-xs-1"><button class="undo">Restore</button></div>{{/if}}
 	</div>
+	{{/if}}
 </template>

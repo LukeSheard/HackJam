@@ -53,7 +53,7 @@ if(Meteor.isClient){
             notes: entry4,
             createdAt: new Date(),
             owner: Meteor.userId(),
-            username: Meteor.user().username,
+            username: Meteor.user().username
          });
 
          event.target.course.value="";
@@ -72,6 +72,8 @@ if(Meteor.isClient){
          if (entry1!=""){
             Classes.insert({
                course: entry1,
+               owner: Meteor.userId(),
+               username: Meteor.user().username
             });
          }         
 
