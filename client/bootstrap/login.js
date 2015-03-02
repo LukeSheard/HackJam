@@ -2,21 +2,23 @@ if(Meteor.isClient){
 	Template.login.events({
 		'submit form': function(event, template){
 		    event.preventDefault();
-		    var emailVar = template.find('#login-email').value;
+		    var username = template.find('#login-username').value;
 		    var passwordVar = template.find('#login-password').value;
-		    Meteor.loginWithPassword(emailVar, passwordVar);
+		    Meteor.loginWithPassword(username, passwordVar);
 		}
 	});
 
 	Template.register.events({
 		'submit form': function(event, template){
 		    event.preventDefault();
-		    var emailVar = template.find('#register-email').value;
+		    var username = template.find('#register-username').value;
 		    var passwordVar = template.find('#register-password').value;
-		    Accounts.createUser({
-		        email: emailVar,
-		        password: passwordVar
-		    });
+		    if(template.find('#register-password').value === template.find('#register-password-confirm').value){
+			    	Accounts.createUser({
+			        username: username,
+			        password: passwordVar
+			    });
+		    }
 		}
 	});
 }
