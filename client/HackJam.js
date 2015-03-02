@@ -69,7 +69,6 @@ if(Meteor.isClient){
 
    Template.body.events({
       "submit .new-course": function(event) {
-
          var entry1 = event.target.classid.value;
          if (entry1!=""){
             Classes.insert({
@@ -84,6 +83,25 @@ if(Meteor.isClient){
          return false;
       }
    });
+
+   // Template.body.events({
+   //    "submit .remove-course": function(event) {
+   //       var entry1 = event.target.classID.value;
+   //       var thing = Classes.find({
+   //          course: entry1,
+   //          owner: Meteor.userId(),
+   //          username: Meteor.user().username
+   //       }, {} ).fetch();
+
+   //       if (entry1!=""){
+   //          Classes.remove(thing);
+   //       }         
+
+   //       event.target.classID.value="";
+
+   //       return true;
+   //    }
+   // });
 
    Template.course.helpers({
       userCheck: function(){

@@ -54,7 +54,7 @@
 					<input type="text" name="notes" placeholder="Enter Assignment Notes">
 				</div>
 				<div class="col-xs-12 col-md-1">
-					<input type="submit" value="Submit" style="width:75px; min-width:75px; max-width:200px" class="btn btn-primary">
+					<input type="submit" value="Add" style="width:75px; min-width:75px; max-width:200px" class="btn btn-primary">
 				</div>
 			</div>
 		</form>
@@ -71,24 +71,55 @@
 
 	<div class="main">
 		<h4>Class Management</h4>
-	  	<form class="new-course">
-			<input type="text" name="classid" placeholder="Course Code" style="min-width:150px;width:200px;max-width:250px">
-			<input type="submit" value="Submit" style="width:75px; min-width:75px; max-width:200px" class="btn btn-primary">
-		</form>
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<h6>Add Class</h6>
+			  	<form class="new-course">
+					<div class="row">
+			  			<div class="col-xs-12 col-sm-9">
+							<input type="text" name="classid" placeholder="Course Code">
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<input type="submit" value="Add" class="btn btn-primary">
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- <div class="col-xs-12 col-md-6">
+				<h6>Drop Class</h6>
+			  	<form class="remove-course">
+			  		<div class="row">
+			  			<div class="col-xs-12 col-sm-9">
+							<input type="text" name="classID" placeholder="Course Code">
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<input type="submit" value="Drop" class="btn btn-primary">
+						</div>
+					</div>
+				</form>
+			</div> -->
+		</div>
 	</div>
 	{{else}}
 		<header>
 			<h3>CalWork</h3>
 		</header>
 			<div class="main" role="main">
-			<div class="row">
-			<div class="col-xs-6">
-				{{> login}}
-			</div>
-			<div class="col-xs-6">
-				{{> register}}
-			</div>
-			</div>
+				<div class="jumbotron">
+					<div class="container">
+						<h1 class="center">CalWork</h1>
+						<p>CalWork is a simple web app designed to help students monitor their homework created at <a href="http://hackersatberkeley.com">Hackers @ Berkeley</a> HackJam 2015 by <a href="http://www.lukesheard.com/">Luke Sheard</a> and <a href="http://www.navrit.com/">Navrit Bal</a>.</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6">
+						{{> login}}
+					</div>
+					<div class="col-xs-6">
+						{{> register}}
+					</div>
+				</div>
 			</div>
 	{{/if}}
 </body>
