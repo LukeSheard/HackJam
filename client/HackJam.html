@@ -75,7 +75,9 @@
     	</div>
     	<div id="collapse{{course}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{course}}">
       		<div class="panel-body">
-        		{{course}}
+        		{{#each tasks course}}
+					{{> task}}
+				{{/each}}
       		</div>
     	</div>
   	</div>

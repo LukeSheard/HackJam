@@ -7,16 +7,15 @@ if(Meteor.isClient){
          return Classes.find(
             {},
             {}
-         ).fetch();
+         )
       }
    });
 
-   Template.body.helpers({
-      tasks: function(course){
+   Template.course.helpers({
+      tasks: function(args){
          return Tasks.find(
-            {},
-            {sort: {createdAt: -1}},
-            {title: course}
+            {course: args},
+            {sort: {createdAt: -1}}
          ).fetch();
       }
    });
