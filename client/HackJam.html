@@ -5,62 +5,65 @@
 </head>
 
 <body>
-	<header>
-		<h3>CalWork</h3>
-	</header>
-	<div class="main" role="main">
-		<h3>Quick Add</h3>
-		<div class="row">
-			<div class="col-xs-3">
-				<h6 class="center">Course Code</h6>
-			</div>
-			<div class="col-xs-3">
-				<h6 class="center">Title</h6>
-			</div>
-			<div class="col-xs-2">
-				<h6 class="center">Due Date</h6>
-			</div>
-			<div class="col-xs-3">
-				<h6 class="center">Comments</h6>
-			</div>
-		</div>
+	<div class="tab-panel">
+		<header>
+			<h3>CalWork</h3>
+		</header>
+		<div class="main" role="main">
 
-		<form class="new-task"> 
+			<h3>Quick Add</h3>
 			<div class="row">
 				<div class="col-xs-3">
-					<input type="text" name="course" placeholder="Enter New Task">
+					<h6 class="center">Course Code</h6>
 				</div>
 				<div class="col-xs-3">
-					<input type="text"  name="title" placeholder="Enter New Task">
+					<h6 class="center">Title</h6>
 				</div>
 				<div class="col-xs-2">
-					<input name="date" placeholder="Enter New Task">
+					<h6 class="center">Due Date</h6>
 				</div>
 				<div class="col-xs-3">
-					<input type="text" name="notes" placeholder="Enter New Task">
-				</div>
-				<div class="col-xs-12 col-md-1">
-					<input type="submit" value="Submit">
+					<h6 class="center">Comments</h6>
 				</div>
 			</div>
-		</form>
-	</div>
 
-	<div class="main">
-		<h3>Homework</h3>
-		<div class="panel-group" id="accordion" role="tablist">
-			{{#each courses}}
-				{{> course}}
-			{{/each}}
+			<form class="new-task"> 
+				<div class="row">
+					<div class="col-xs-3">
+						<input type="text" name="course" placeholder="Enter New Task">
+					</div>
+					<div class="col-xs-3">
+						<input type="text"  name="title" placeholder="Enter New Task">
+					</div>
+					<div class="col-xs-2">
+						<input name="date" placeholder="Enter New Task">
+					</div>
+					<div class="col-xs-3">
+						<input type="text" name="notes" placeholder="Enter New Task">
+					</div>
+					<div class="col-xs-12 col-md-1">
+						<input type="submit" value="Submit">
+					</div>
+				</div>
+			</form>
 		</div>
-	</div>
 
-	<div class="main">
-		<h4>Class Management</h4>
-	  	<form class="new-course">
-			<input type="text" name="classid" placeholder="Course Code">
-			<input type="submit" value="Submit">
-		</form>
+		<div class="main">
+			<h3>Homework</h3>
+			<div class="panel-group" id="accordion" role="tablist">
+				{{#each courses}}
+					{{> course}}
+				{{/each}}
+			</div>
+		</div>
+
+		<div class="main">
+			<h4>Class Management</h4>
+		  	<form class="new-course">
+				<input type="text" name="classid" placeholder="Course Code">
+				<input type="submit" value="Submit">
+			</form>
+		</div>
 	</div>
 </body>
 
@@ -76,9 +79,6 @@
     	<div id="collapse{{course}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{course}}">
       		<div class="panel-body">
       			<div class="row">
-					<div class="col-xs-3">
-						<h6 class="center">Course Code</h6>
-					</div>
 					<div class="col-xs-3">
 						<h6 class="center">Title</h6>
 					</div>
@@ -100,9 +100,6 @@
 <template name="task">	
 	<hr style="margin:2px">
 	<div class="row">
-		<div class="col-xs-3">
-			<p class="{{#if checked}}checked {{else}} item {{/if}} center">{{course}}</p>
-		</div>
 		<div class="col-xs-3">
 			<p class="{{#if checked}}checked {{else}} item {{/if}} center">{{title}}</p>
 		</div>
