@@ -52,6 +52,8 @@ if(Meteor.isClient){
             date: entry3,
             notes: entry4,
             createdAt: new Date(),
+            owner: Meteor.userId(),
+            username: Meteor.user().username,
          });
 
          event.target.course.value="";
