@@ -4,7 +4,7 @@ if(Meteor.isClient){
 		    event.preventDefault();
 		    var username = template.find('#login-username').value;
 		    var passwordVar = template.find('#login-password').value;
-		    if (1){
+		    if (Meteor.loginWithPassword(username, passwordVar)){
 		    	Meteor.loginWithPassword(username, passwordVar);
 		    } else {
 		    	window.alert("Failed");
