@@ -1,6 +1,7 @@
 <head>
 	<title>Task Manager Test</title>
 	<link href="bootstrap/bootstrap.css">
+	<link href="bootstrap/login.css">
 	<script link="bootstrap/bootstrap.js"></script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
   	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -15,12 +16,11 @@
 </head>
 
 <body>
+	{{#if currentUser}}
 	<header>
 		<h3>CalWork</h3>
 		{{> loginButtons}}
 	</header>
-
-	{{#if currentUser}}
 	<div class="main" role="main">
 
 		<h3>Quick Add</h3>
@@ -76,6 +76,13 @@
 			<input type="submit" value="Submit">
 		</form>
 	</div>
+	{{else}}
+		<header>
+			<h3>CalWork</h3>
+		</header>
+		<div class="main" role="main">
+			{{> loginButtons}}
+		</div>
 	{{/if}}
 </body>
 
